@@ -6,20 +6,13 @@ library(syuzhet)
 library(quanteda)
 library(topicmodels)
 
-# Para hacer la conexión con la api de twitter
-# Keys and Token
-api_key <- "9cEVJjdGIuKjaL7xYqkdhD1LI"
-api_secret <- "sHBJLc1Iwpgdy9yjSls3X9DkyPfJciNxQASbB44auhgItO6GKA"
-access_token <- "1140008627014635520-vY2FXYlCrH4yIeMADX1r1lelngwzWn" #
-access_token_secret <- "94KCMQXD3tppzQIp4q0hhOTn9PX4r4563Q1ZT5mpl2gwn" #
-setup_twitter_oauth(api_key, api_secret, access_token, access_token_secret)
 
 # 1. Descargar 18000 tweets de Cosse y Larrañaga
 
 tweets_cosse <- searchTwitter("Cosse OR Carolina Cosse OR CosseCarolina",
                               n = 18000, lang = "es")
 tweets_larranaga <- searchTwitter("Larrañaga OR Jorge Larrañaga OR jorgewlarranaga",
-                                n = 18000, lang = "es")
+                                 n = 18000, lang = "es")
 
 # 2. Se unen las dos bases y se agrega la variable "nombre", con el nombre del precandidato
 
@@ -51,11 +44,12 @@ mydfm <- dfm(tweets_candidatos,
              verbose = TRUE)
 
 # Me quedo sólo con las palabras
+
 palabras <- featnames(mydfm)
 
 # Saco palabras con 1 y 2 caracteres
-arroba <- grep("@\\w+ *",palabras, value = TRUE)
-hashtag <- grep("#\\w+ *",palabras, value = TRUE)
+arroba <- grep("@\\w+ *", palabras, value = TRUE)
+hashtag <- grep("#\\w+ *", palabras, value = TRUE)
 
 
 # Saco palabras con 1 y 2 caracteres
@@ -175,6 +169,8 @@ ggplot(sent, aes(x = candidato,
 
 
 
+=======
+>>>>>>> 79e6612ce0278d4753b4326358b3778455cc7fda
 # Otro paquete
 library(syuzhet)
 
